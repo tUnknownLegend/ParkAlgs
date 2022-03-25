@@ -1,10 +1,12 @@
 /*
  * Задача 2.3
- * Дан отсортированный массив различных целых чисел A[0..n-1] и массив целых чисел B[0..m-1].
- * Для каждого элемента массива B[i] найдите минимальный индекс элемента массива A[k], ближайшего по значению к B[i].
- * Требования: Время работы поиска для каждого элемента B[i]: O(log(k)).
- * Внимание! В этой задаче для каждого B[i] сначала нужно определить диапазон для бинарного поиска
- * размером порядка k с помощью экспоненциального поиска, а потом уже в нем делать бинарный поиск.
+ * Даны два массива неповторяющихся целых чисел, упорядоченные по возрастанию.
+ * A[0..n-1] и B[0..m-1]. n >> m. Найдите их пересечение.
+ * Требования: Время работы: O(m * log k),
+ * где k - позиция элемента B[m-1] в массиве A.
+ * В процессе поиска очередного элемента B[i] в массиве A пользуйтесь результатом поиска элемента B[i-1].
+ * Внимание! В этой задаче для каждого B[i] сначала нужно определить диапазон для бинарного поиска размером порядка k
+ * помощью экспоненциального поиска, а потом уже в нем делать бинарный поиск.
  */
 
 // time complexity o(m * log k)
@@ -12,6 +14,38 @@
 
 #include <iostream>
 #include <cassert>
+
+int binary_search(const int *arr, const int &comp_element, const int &input_left, const int &input_right);
+
+int my_search(const int *arr_n, const int &n, const int *arr_m, const int &m, int *arr_res);
+
+int main() {
+    short n = 0;
+    short m = 0;
+    std::cin >> n >> m; // n - size of arr_n; m - size of arr_m
+    assert(n > m && m >= 0);
+    int *arr_n = new int[n];
+    int *arr_m = new int[m];
+    for (int i = 0; i < n; ++i)
+        std::cin >> arr_n[i];
+    for (int i = 0; i < m; ++i)
+        std::cin >> arr_m[i];
+
+    int *arr_res = new int[m+1];  // output array
+    arr_res[0] = -19999;
+    int res_amt = my_search(arr_n, n, arr_m, m, arr_res);  //  amount of resulting elements
+    if (res_amt > 1)
+        for (int i = 1; i < res_amt; ++i) {
+            std::cout << arr_res[i] << " ";
+        }
+   // else
+   //     std::cout << "not found\n";
+
+    delete[](arr_res);
+    delete[](arr_n);
+    delete[](arr_m);
+    return 0;
+}
 
 int binary_search(const int *arr, const int &comp_element, const int &input_left, const int &input_right) {
     int left = input_left;
@@ -29,22 +63,22 @@ int binary_search(const int *arr, const int &comp_element, const int &input_left
 
 int my_search(const int *arr_n, const int &n, const int *arr_m, const int &m, int *arr_res) {
     int pivot = 1;
-    int res_amt = 0;
+    int res_amt = 1; // starting from arr_res[1] to guarantee uniqueness with if check in 80 and 91
     int index = 0;
 
     //  finding first element from arr_m, which is greater than arr_n[0]
     if (std::min(arr_m[index], arr_n[0]) != arr_n[0]) {
         ++index;
-        for (; index < m && std::max(arr_m[index], arr_n[0]) != arr_m[index]; ++index) {}
-        //++index;
+        for (; index <= m && std::max(arr_m[index], arr_n[0]) != arr_m[index]; ++index) {}
     }
 
     // iterate through arr_m to find elements in range from arr_n[pivot >> 1] to arr_n[pivot]
-    for (; index < m; ++index) {
+    for (; index <= m; ++index) {
         while (pivot < n) {
             if (arr_m[index] >= arr_n[pivot >> 1] && arr_m[index] <= arr_n[pivot]) {
                 // if elements found adding to resulting array and breaking while loop
-                if ((binary_search(arr_n, arr_m[index], (pivot >> 1), pivot + 1)) != -1) {
+                if ((binary_search(arr_n, arr_m[index], (pivot >> 1), pivot + 1)) != -1
+                    && arr_res[res_amt - 1] != arr_m[index]) {
                     arr_res[res_amt] = arr_m[index];
                     ++res_amt;
                 }
@@ -53,39 +87,13 @@ int my_search(const int *arr_n, const int &n, const int *arr_m, const int &m, in
             pivot = pivot << 1; // pivot *= 2 each step if not found
         }
         //  checking right limit value separately
-        if (pivot > n && arr_m[index] >= arr_n[pivot >> 1] && arr_m[index] <= arr_n[n]) {
-            if ((binary_search(arr_n, arr_m[index], (pivot >> 1), n + 1)) != -1) {
+        if (pivot > n && arr_m[index] >= arr_n[pivot >> 1] && arr_m[index] <= arr_n[n - 1]) {
+            if ((binary_search(arr_n, arr_m[index], (pivot >> 1), n)) != -1
+            && arr_res[res_amt - 1] != arr_m[index]) {
                 arr_res[res_amt] = arr_m[index];
                 ++res_amt;
             }
         }
     }
     return res_amt;
-}
-
-int main() {
-    short n = 0;
-    short m = 0;
-    std::cin >> n >> m; // n - size of arr_n; m - size of arr_m
-    assert(n > m && m > 0);
-    int *arr_n = new int[n];
-    int *arr_m = new int[m];
-    for (int i = 0; i < n; ++i)
-        std::cin >> arr_n[i];
-    for (int i = 0; i < m; ++i)
-        std::cin >> arr_m[i];
-
-    int *arr_res = new int[m];  // output array
-    int res_amt = my_search(arr_n, n, arr_m, m, arr_res);  //  amount of resulting elements
-    if (res_amt > 0)
-        for (int i = 0; i < res_amt; ++i) {
-            std::cout << arr_res[i] << " ";
-        }
-    else
-        std::cout << "not found\n";
-
-    delete[](arr_res);
-    delete[](arr_n);
-    delete[](arr_m);
-    return 0;
 }
