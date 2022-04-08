@@ -18,14 +18,14 @@
  * Требования: Очередь должна быть реализована в виде класса.
  */
 
-// time complexity o(n)
+// time complexity o(n), but only when calling renew(), otherwise o(1)
 // space complexity o(n)
 
 #include<cassert>
 #include<iostream>
 #include <cstring>
 
-#define ARRAY_INIT_SIZE 1
+#define ARRAY_INIT_SIZE 16
 
 template<class T>
 class Queue {
