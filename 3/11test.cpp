@@ -18,11 +18,12 @@
  * Требования: Очередь должна быть реализована в виде класса.
  */
 
-// time complexity o(n)
-// space complexity o(n)
+// time complexity o()
+// space complexity o()
 
 #include<cassert>
 #include<iostream>
+#include<sstream>
 #include <cstring>
 
 #define ARRAY_INIT_SIZE 1
@@ -61,20 +62,16 @@ private:
 template<class T>
 T *Queue<T>::renew() {
     T *array = new int[sizeOfArray * 2];
-
     if (std::is_trivially_copyable<T>::value) {
-        //assert(head != tail);
         if (head <= tail)
             memcpy(array, Array, sizeOfArray * sizeof(T));
         else {  //  if tail is on the left side of the array
             //  copy elements in range (head, sizeOfArray)
-            assert(Array != head);
             memcpy(array, head, (Array + sizeOfArray - head) * sizeof(T));
             // copy elements in range (Array[0], tail)
-            assert(Array != tail);
             memcpy(array + (Array + sizeOfArray - head), Array, (tail - Array) * sizeof(T));
         }
-    } else //  if not trivially copyable
+    } else  //  if not trivially copyable
         for (int i = 0; i < sizeOfArray; ++i)
             array[i] = Array[i];
 
@@ -114,9 +111,7 @@ void Queue<T>::PushBack(const T &value) {
 
     // if (sizeOfArray > sizeUsed)
     if (IsEmpty()) {
-        //  assert(tail == head);
-        head = tail = Array;
-        *head = value;
+        *head = *tail = value;
     } else {
         if (tail != Array + sizeOfArray - 1) {
             ++tail;
@@ -149,7 +144,6 @@ int main() {
     Queue<int> queue;
     int n = 0;
     std::cin >> n;
-    assert(n > 0 && n <= 1000000);
     bool result = true;
     for (int i = 0; i < n; ++i) {
         int command = 0;
