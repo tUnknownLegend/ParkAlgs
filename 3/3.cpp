@@ -63,16 +63,13 @@ T *Queue<T>::renew() {
     T *array = new int[sizeOfArray * 2];
 
     if (std::is_trivially_copyable<T>::value) {
-        //assert(head != tail);
         if (head <= tail)
             memcpy(array, Array, sizeOfArray * sizeof(T));
         else {  //  if tail is on the left side of the array
             //  copy elements in range (head, sizeOfArray)
-            assert(Array != head);
             memcpy(array, head, (Array + sizeOfArray - head) * sizeof(T));
             // copy elements in range (Array[0], tail)
-            assert(Array != tail);
-            memcpy(array + (Array + sizeOfArray - head), Array, (tail - Array) * sizeof(T));
+            memcpy(array + (Array + sizeOfArray - head), Array, (tail - Array + 1) * sizeof(T));
         }
     } else //  if not trivially copyable
         for (int i = 0; i < sizeOfArray; ++i)
@@ -114,7 +111,6 @@ void Queue<T>::PushBack(const T &value) {
 
     // if (sizeOfArray > sizeUsed)
     if (IsEmpty()) {
-        //  assert(tail == head);
         head = tail = Array;
         *head = value;
     } else {
