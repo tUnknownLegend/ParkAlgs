@@ -13,7 +13,7 @@ public:
 
 template<class T, class Compare = CompareMore<T> >
 int getMediana(T *arr, const int left, const int right, Compare cmp = CompareMore<T>()) {
-    int mid = (right - left + 1) / 2;
+    int mid = (right - left + 1) / 2 + left;
 
     if ((cmp(arr[mid], arr[left]) && !cmp(arr[mid], arr[right])) ||
         (!cmp(arr[mid], arr[left]) && cmp(arr[mid], arr[right])))
@@ -27,17 +27,16 @@ int getMediana(T *arr, const int left, const int right, Compare cmp = CompareMor
 }
 
 template<class T, class Compare = CompareMore<T> >
-int partition(T *arr, const int left, const int right, Compare cmp = CompareMore<T>()) {
-    if (right - left <= 0) {
+int partition(T *arr, int left, int right, Compare cmp = CompareMore<T>()) {
+    if (right <= left)
         return left;
-    }
 
     int pivot = getMediana<T>(arr, left, right);
     std::swap(arr[pivot], arr[right]);
     int i = left;
     int j = left;
 
-    for (; j < right - 1; ++j) {
+    for (; j < right; ++j) {
         if (!cmp(arr[j], arr[right])) {
             std::swap(arr[j], arr[i]);
             ++i;
@@ -57,7 +56,7 @@ T &findKStat(T *arr, const int n, const T k, Compare cmp = CompareMore<T>()) {
         if (k > pivot)
             left = pivot + 1;
         else
-            right = pivot;
+            right = pivot - 1;
 
         pivot = partition<T>(&arr[0], left, right);
     }
@@ -65,12 +64,11 @@ T &findKStat(T *arr, const int n, const T k, Compare cmp = CompareMore<T>()) {
     return arr[k];
 }
 
-int percentile(const double p, const int size) {
-    return (int) round((double) p / 100 * (double) size);
+int percentile(const int p, const int size) {
+    return (int) ((double) p / 100 * (double) size);
 }
 
 int main() {
-
     int inputArrSize = 0;
     std::cin >> inputArrSize;
     assert(inputArrSize > 0);
