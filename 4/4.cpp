@@ -176,14 +176,16 @@ T Heap<T, Compare>::ExtractMax() {
     buffer[0] = buffer[size - 1];
     --size;
 
-    if (!size) {
+    if (size) {
         siftDown(0);
     }
+
     return result;
 }
 
 template<class T, class Compare>
 const T &Heap<T, Compare>::PeekMax() const {
+    assert(size);
     return buffer[0];
 }
 
@@ -217,11 +219,19 @@ void Heap<T, Compare>::Insert(const T &el) {
 
 template<class T, class Compare>
 void Heap<T, Compare>::siftDown(int index) {
-    int left = -1;
-    int right = -2;
-    int largest = -3;
+    int left = 2 * index + 1;
+    int right = 2 * index + 2;
+    int largest = index;
+
+    if (left < size && cmp(buffer[left], buffer[largest]))
+        largest = left;
+    if (right < size && cmp(buffer[right], buffer[largest]))
+        largest = right;
 
     while (largest != index) {
+        std::swap(buffer[index], buffer[largest]);
+        index = largest;
+
         left = 2 * index + 1;
         right = 2 * index + 2;
         largest = index;
@@ -230,9 +240,6 @@ void Heap<T, Compare>::siftDown(int index) {
             largest = left;
         if (right < size && cmp(buffer[right], buffer[largest]))
             largest = right;
-
-        std::swap(buffer[index], buffer[largest]);
-        index = largest;
     }
 }
 
@@ -265,27 +272,16 @@ struct Element {
     int ArrayIndex;
 };
 
-/*
- * [](const Element &a, const Element &b) { return a.Value > b.Value; }
- */
-
 class ElementCmp {
 public:
     bool operator()(const Element &a, const Element &b) { return a.Value < b.Value; };
 };
 
-/*
-bool ElementCmp(const Element &a, const Element &b) {
-    return a.Value > b.Value;
-}
-*/
-
-
 int main() {
     int amtOfArrays = 0;
     std::cin >> amtOfArrays;
     assert(amtOfArrays > 0);
-    Buffer<int> arr(1); // = temp;
+    Buffer<int> arr(1);
     Buffer<int> arrSplitPoints(1);
     int arrSize = 0;
     arrSplitPoints.Insert(arrSize);
@@ -302,7 +298,6 @@ int main() {
         }
     }
 
-    --arrSplitPoints.buffer[amtOfArrays];
     Element *elements = new Element[amtOfArrays];
     for (int i = 0; i < amtOfArrays; ++i) {
         elements[i].Value = arr.buffer[arrSplitPoints.buffer[i]];
@@ -316,18 +311,18 @@ int main() {
     while (h.Size() > 1) {
         std::cout << h.PeekMax().Value << " ";
         tempEl = h.ExtractMax().ArrayIndex;
-        //++tempEl;
-        if (elements[tempEl].ValueIndex < arrSplitPoints.buffer[tempEl + 1]) {
-            elements[tempEl].Value = arr.buffer[++(elements[tempEl].ValueIndex)];
+
+        if (++elements[tempEl].ValueIndex < arrSplitPoints.buffer[tempEl + 1]) {
+            elements[tempEl].Value = arr.buffer[(elements[tempEl].ValueIndex)];
             h.Insert(elements[tempEl]);
         }
     }
 
     tempEl = h.ExtractMax().ArrayIndex;
-    for(int i = elements[tempEl].ValueIndex; i < --arrSplitPoints.buffer[tempEl + 1]; ++i)
-        std::cout << arr.buffer[++(elements[tempEl].ValueIndex)] << " ";
+    for (int i = elements[tempEl].ValueIndex; i < arrSplitPoints.buffer[tempEl + 1]; ++i)
+        std::cout << arr.buffer[i] << " ";
 
-   delete[] elements;
+    delete[] elements;
 }
 
 
