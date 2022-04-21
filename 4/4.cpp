@@ -2,6 +2,20 @@
 #include<cassert>
 #include <cstring>
 
+/*
+ * Требование для всех вариантов Задачи 4
+ *  Решение всех задач данного раздела предполагает использование кучи, реализованной в виде шаблонного класса.
+ *  Решение должно поддерживать передачу функции сравнения снаружи.
+ *  Куча должна быть динамической.
+ *
+ * Задача 4.1 Слияние массивов.
+ * Напишите программу, которая использует кучу для слияния K отсортированных массивов суммарной длиной N.
+ * Требования: время работы O(N * logK). Ограничение на размер кучи O(K)..
+ * Формат входных данных: Сначала вводится количество массивов K. Затем по очереди размер каждого массива и элементы массива.
+ * Каждый массив упорядочен по возрастанию.
+ * Формат выходных данных: Итоговый отсортированный массив.
+ */
+
 //  time complexity O(N * logK)
 //  space complexity O(K)
 
@@ -14,9 +28,11 @@ public:
 
     ~Buffer();
 
-    //Buffer &operator=(const Buffer &data);
+    Buffer &operator=(const Buffer &data);
 
     void Insert(const T &data);
+
+    T *allocate(int initSize);
 
     T *buffer;
     int size;
@@ -48,21 +64,27 @@ Buffer<T>::~Buffer() {
     bufferSize = size = 0;
 }
 
-/*
+
 template<class T>
 Buffer<T> &Buffer<T>::operator=(const Buffer &data) {
-    if (bufferSize > 0) {
-        T *tmp = buffer;
-        buffer = nullptr;
-        delete[] tmp;
+    if (data.buffer != this->buffer) {
+        if (bufferSize > 0) {
+            T *tmp = buffer;
+            buffer = nullptr;
+            delete[] tmp;
+        }
+        buffer = data.buffer;
+        bufferSize = data.bufferSize;
+        size = data.size;
+        data = nullptr;
+    } else {
+        this->bufferSize = data.bufferSize;
+        this->size = data.size;
     }
-    buffer = data.buffer;
-    bufferSize = data.bufferSize;
-    size = data.size;
 
     return *this;
 }
-*/
+
 template<class T>
 void Buffer<T>::Insert(const T &data) {
     if (bufferSize <= size)
@@ -75,7 +97,7 @@ void Buffer<T>::Insert(const T &data) {
 
 template<class T>
 T *Buffer<T>::renew() {
-    T *transBuffer = new int[2 * bufferSize];
+    T *transBuffer = new T[2 * bufferSize];
 
     if (std::is_trivially_copyable<T>::value) {
         memcpy(transBuffer, buffer, bufferSize * sizeof(T));
@@ -94,6 +116,19 @@ T *Buffer<T>::renew() {
 }
 
 template<class T>
+T *Buffer<T>::allocate(const int initSize) {
+    if (buffer != nullptr) {
+        T *tmpBuffer = buffer;
+        buffer = nullptr;
+        delete[] tmpBuffer;
+    }
+    buffer = new T[initSize];
+    bufferSize = initSize;
+
+    return buffer;
+}
+
+template<class T>
 class CompareLess {
 public:
     bool operator()(const T &l, const T &r) { return l < r; }
@@ -102,11 +137,13 @@ public:
 template<class T, class Compare = CompareLess<T> >
 class Heap {
 public:
-    Heap(Compare cmp = CompareLess<T>());
+    Heap(Compare _cmp = CompareLess<T>()) : cmp(_cmp) {};
 
-    Heap(T *arr, int size, Compare cmp = CompareLess<T>());
+    Heap(T *arr, int size, Compare _cmp = CompareLess<T>());
 
-    ~Heap();
+    ~Heap() = default;
+
+    Heap &operator=(const Heap &data);
 
     T ExtractMax();
 
@@ -123,60 +160,39 @@ private:
 
     void buildHeap();
 
-    T *renew();
-
-    T *buffer;
-    int size;
-    int bufferSize;
+    Buffer<T> dynArr;
     Compare cmp;
 };
 
 template<class T, class Compare>
-Heap<T, Compare>::Heap(Compare _cmp) {
-    buffer = nullptr;
-    size = 0;
-    bufferSize = 0;
-    cmp = _cmp;
-}
-
-template<class T, class Compare>
-Heap<T, Compare>::Heap(T *arr, int _size, Compare _cmp) {
-    bufferSize = size = _size;
-    //buffer = new T[bufferSize];
-    //size = _size;
-    cmp = _cmp;
-
-    //buffer = arr;
-
-    buffer = new T[bufferSize];
-
+Heap<T, Compare>::Heap(T *arr, int _size, Compare _cmp) : cmp(_cmp) {
+    dynArr.allocate(_size);
     if (std::is_trivially_copyable<T>::value) {
-        memcpy(buffer, arr, bufferSize * sizeof(T));
+        memcpy(dynArr.buffer, arr, _size * sizeof(T));
     } else //  if not trivially copyable
-        for (int i = 0; i < bufferSize; ++i)
-            buffer[i] = arr[i];
+        for (int i = 0; i < _size; ++i)
+            dynArr.buffer[i] = arr[i];
+
+    dynArr.size = _size;
 
     buildHeap();
 }
 
 template<class T, class Compare>
-Heap<T, Compare>::~Heap() {
-    if (bufferSize > 0)
-        delete[] buffer;
-
-    bufferSize = size = 0;
+Heap<T, Compare> &Heap<T, Compare>::operator=(const Heap &data) {
+    this->dynArr = data.dynArr;
+    return *this;
 }
 
 template<class T, class Compare>
 T Heap<T, Compare>::ExtractMax() {
-    assert(size);
+    assert(dynArr.size);
+    T result = dynArr.buffer[0];
 
-    T result = buffer[0];
+    dynArr.buffer[0] = dynArr.buffer[dynArr.size - 1];
+    --dynArr.size;
 
-    buffer[0] = buffer[size - 1];
-    --size;
-
-    if (size) {
+    if (dynArr.size) {
         siftDown(0);
     }
 
@@ -185,36 +201,15 @@ T Heap<T, Compare>::ExtractMax() {
 
 template<class T, class Compare>
 const T &Heap<T, Compare>::PeekMax() const {
-    assert(size);
-    return buffer[0];
-}
-
-template<class T, class Compare>
-T *Heap<T, Compare>::renew() {
-    T *transBuffer = new T[2 * bufferSize];
-
-    if (std::is_trivially_copyable<T>::value) {
-        memcpy(transBuffer, buffer, bufferSize * sizeof(T));
-    } else //  if not trivially copyable
-        for (int i = 0; i < bufferSize; ++i)
-            transBuffer[i] = buffer[i];
-
-    T *tmpBuffer = buffer;
-    buffer = transBuffer;
-    delete[] tmpBuffer;
-    bufferSize *= 2;
-
-    return buffer;
+    assert(dynArr.size);
+    return dynArr.buffer[0];
 }
 
 template<class T, class Compare>
 void Heap<T, Compare>::Insert(const T &el) {
-    if (bufferSize <= size)
-        renew();
 
-    buffer[size] = el;
-    siftUp(size);
-    ++size;
+    dynArr.Insert(el);
+    siftUp(dynArr.size - 1);
 }
 
 template<class T, class Compare>
@@ -223,22 +218,22 @@ void Heap<T, Compare>::siftDown(int index) {
     int right = 2 * index + 2;
     int largest = index;
 
-    if (left < size && cmp(buffer[left], buffer[largest]))
+    if (left < dynArr.size && cmp(dynArr.buffer[left], dynArr.buffer[largest]))
         largest = left;
-    if (right < size && cmp(buffer[right], buffer[largest]))
+    if (right < dynArr.size && cmp(dynArr.buffer[right], dynArr.buffer[largest]))
         largest = right;
 
     while (largest != index) {
-        std::swap(buffer[index], buffer[largest]);
+        std::swap(dynArr.buffer[index], dynArr.buffer[largest]);
         index = largest;
 
         left = 2 * index + 1;
         right = 2 * index + 2;
         largest = index;
 
-        if (left < size && cmp(buffer[left], buffer[largest]))
+        if (left < dynArr.size && cmp(dynArr.buffer[left], dynArr.buffer[largest]))
             largest = left;
-        if (right < size && cmp(buffer[right], buffer[largest]))
+        if (right < dynArr.size && cmp(dynArr.buffer[right], dynArr.buffer[largest]))
             largest = right;
     }
 }
@@ -247,23 +242,23 @@ template<class T, class Compare>
 void Heap<T, Compare>::siftUp(int index) {
     while (index > 0) {
         int parent = (index - 1) / 2;
-        if (!cmp(buffer[index], buffer[parent]))
+        if (!cmp(dynArr.buffer[index], dynArr.buffer[parent]))
             return;
-        std::swap(buffer[index], buffer[parent]);
+        std::swap(dynArr.buffer[index], dynArr.buffer[parent]);
         index = parent;
     }
 }
 
 template<class T, class Compare>
 void Heap<T, Compare>::buildHeap() {
-    for (int i = size / 2 - 1; i >= 0; --i) {
+    for (int i = dynArr.size / 2 - 1; i >= 0; --i) {
         siftDown(i);
     }
 }
 
 template<class T, class Compare>
 int Heap<T, Compare>::Size() const {
-    return size;
+    return dynArr.size;
 }
 
 struct Element {
@@ -324,5 +319,3 @@ int main() {
 
     delete[] elements;
 }
-
-
