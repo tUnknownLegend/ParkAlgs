@@ -15,82 +15,82 @@
 #include <iostream>
 #include <cassert>
 
-int binary_search(const int *arr, const int &comp_element, const int &input_left, const int &input_right);
+int BinarySearch(const int *arr, const int &compElement, const int &inputLeft, const int &inputRight);
 
-int my_search(const int *arr_n, const int &n, const int *arr_m, const int &m, int *arr_res);
+int MySearch(const int *arrN, const int &n, const int *arrM, const int &m, int *arrRes);
 
 int main() {
     short n = 0;
     short m = 0;
-    std::cin >> n >> m; // n - size of arr_n; m - size of arr_m
+    std::cin >> n >> m; // n - size of arrN; m - size of arrM
     assert(n > m && m >= 0 && n <= 10000);
-    int *arr_n = new int[n];
-    int *arr_m = new int[m];
+    int *arrN = new int[n];
+    int *arrM = new int[m];
     for (int i = 0; i < n; ++i)
-        std::cin >> arr_n[i];
+        std::cin >> arrN[i];
     for (int i = 0; i < m; ++i)
-        std::cin >> arr_m[i];
+        std::cin >> arrM[i];
 
-    int *arr_res = new int[m];  // output array
-    int res_amt = my_search(arr_n, n, arr_m, m, arr_res);  //  amount of resulting elements
-    if (res_amt > 0)
-        for (int i = 0; i < res_amt; ++i) {
-            std::cout << arr_res[i] << " ";
+    int *arrRes = new int[m];  // output array
+    int resAmt = MySearch(arrN, n, arrM, m, arrRes);  //  amount of resulting elements
+    if (resAmt > 0)
+        for (int i = 0; i < resAmt; ++i) {
+            std::cout << arrRes[i] << " ";
         }
    // else
    //     std::cout << "not found\n";
 
-    delete[](arr_res);
-    delete[](arr_n);
-    delete[](arr_m);
+    delete[](arrRes);
+    delete[](arrN);
+    delete[](arrM);
     return 0;
 }
 
-int binary_search(const int *arr, const int &comp_element, const int &input_left, const int &input_right) {
-    int left = input_left;
-    int right = input_right; // element in input_right excluded from search
+int BinarySearch(const int *arr, const int &compElement, const int &inputLeft, const int &inputRight) {
+    int left = inputLeft;
+    int right = inputRight; // element in inputRight excluded from search
     int mid = -1;
     while (left < right) {
         mid = (left + right) / 2;
-        if (arr[mid] < comp_element)
+        if (arr[mid] < compElement)
             left = mid + 1;
         else
             right = mid;
     }
-    return (left == input_right || arr[left] != comp_element) ? -1 : left;
+    return (left == inputRight || arr[left] != compElement) ? -1 : left;
 }
 
-int my_search(const int *arr_n, const int &n, const int *arr_m, const int &m, int *arr_res) {
+int MySearch(const int *arrN, const int &n, const int *arrM, const int &m, int *arrRes) {
     int pivot = 1;
-    int res_amt = 0;
+    int resAmt = 0;
     int index = 0;
 
-    //  finding first element from arr_m, which is greater than arr_n[0]
-    if (std::min(arr_m[index], arr_n[0]) != arr_n[0]) {
+    //  finding first element from arrM, which is greater than arrN[0]
+    if (std::min(arrM[index], arrN[0]) != arrN[0]) {
         ++index;
-        for (; index <= m && std::max(arr_m[index], arr_n[0]) != arr_m[index]; ++index) {}
+        for (; index <= m && std::max(arrM[index], arrN[0]) != arrM[index]; ++index) {}
     }
 
-    // iterate through arr_m to find elements in range from arr_n[pivot >> 1] to arr_n[pivot]
+    // iterate through arrM to find elements in range from arrN[pivot >> 1] to arrN[pivot]
     for (; index < m; ++index) {
         while (pivot < n) {
-            if (arr_m[index] >= arr_n[pivot >> 1] && arr_m[index] <= arr_n[pivot]) {
+            if (arrM[index] >= arrN[pivot >> 1] && arrM[index] <= arrN[pivot]) {
                 // if elements found adding to resulting array and breaking while loop
-                if ((binary_search(arr_n, arr_m[index], (pivot >> 1), pivot + 1)) != -1) {
-                    arr_res[res_amt] = arr_m[index];
-                    ++res_amt;
+                if ((BinarySearch(arrN, arrM[index], (pivot >> 1), pivot + 1)) != -1) {
+                    arrRes[resAmt] = arrM[index];
+                    ++resAmt;
                 }
                 break;
             }
             pivot = pivot << 1; // pivot *= 2 each step if not found
         }
         //  checking right limit value separately
-        if (pivot >= n && arr_m[index] >= arr_n[pivot >> 1] && arr_m[index] <= arr_n[n - 1]) {
-            if ((binary_search(arr_n, arr_m[index], (pivot >> 1), n)) != -1) {
-                arr_res[res_amt] = arr_m[index];
-                ++res_amt;
+        if (pivot >= n && arrM[index] >= arrN[pivot >> 1] && arrM[index] <= arrN[n - 1]) {
+            if ((BinarySearch(arrN, arrM[index], (pivot >> 1), n)) != -1) {
+                arrRes[resAmt] = arrM[index];
+                ++resAmt;
             }
         }
     }
-    return res_amt;
+    return resAmt;
 }
