@@ -53,10 +53,10 @@ RM = /home/aint/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aint/park/algs/m3/1
+CMAKE_SOURCE_DIR = /home/aint/park/algs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aint/park/algs/m3/1/build
+CMAKE_BINARY_DIR = /home/aint/park/algs/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/1.dir/depend.make
@@ -72,86 +72,86 @@ include CMakeFiles/1.dir/flags.make
 CMakeFiles/1.dir/main.cpp.o: CMakeFiles/1.dir/flags.make
 CMakeFiles/1.dir/main.cpp.o: ../main.cpp
 CMakeFiles/1.dir/main.cpp.o: CMakeFiles/1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/m3/1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/1.dir/main.cpp.o"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/main.cpp.o -MF CMakeFiles/1.dir/main.cpp.o.d -o CMakeFiles/1.dir/main.cpp.o -c /home/aint/park/algs/m3/1/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/1.dir/main.cpp.o"
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/main.cpp.o -MF CMakeFiles/1.dir/main.cpp.o.d -o CMakeFiles/1.dir/main.cpp.o -c /home/aint/park/algs/main.cpp
 
 CMakeFiles/1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/1.dir/main.cpp.i"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/m3/1/main.cpp > CMakeFiles/1.dir/main.cpp.i
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/main.cpp > CMakeFiles/1.dir/main.cpp.i
 
 CMakeFiles/1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/1.dir/main.cpp.s"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/m3/1/main.cpp -o CMakeFiles/1.dir/main.cpp.s
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/main.cpp -o CMakeFiles/1.dir/main.cpp.s
 
 CMakeFiles/1.dir/IGraph/IGraph.cpp.o: CMakeFiles/1.dir/flags.make
 CMakeFiles/1.dir/IGraph/IGraph.cpp.o: ../IGraph/IGraph.cpp
 CMakeFiles/1.dir/IGraph/IGraph.cpp.o: CMakeFiles/1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/m3/1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/1.dir/IGraph/IGraph.cpp.o"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/IGraph/IGraph.cpp.o -MF CMakeFiles/1.dir/IGraph/IGraph.cpp.o.d -o CMakeFiles/1.dir/IGraph/IGraph.cpp.o -c /home/aint/park/algs/m3/1/IGraph/IGraph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/1.dir/IGraph/IGraph.cpp.o"
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/IGraph/IGraph.cpp.o -MF CMakeFiles/1.dir/IGraph/IGraph.cpp.o.d -o CMakeFiles/1.dir/IGraph/IGraph.cpp.o -c /home/aint/park/algs/IGraph/IGraph.cpp
 
 CMakeFiles/1.dir/IGraph/IGraph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/1.dir/IGraph/IGraph.cpp.i"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/m3/1/IGraph/IGraph.cpp > CMakeFiles/1.dir/IGraph/IGraph.cpp.i
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/IGraph/IGraph.cpp > CMakeFiles/1.dir/IGraph/IGraph.cpp.i
 
 CMakeFiles/1.dir/IGraph/IGraph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/1.dir/IGraph/IGraph.cpp.s"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/m3/1/IGraph/IGraph.cpp -o CMakeFiles/1.dir/IGraph/IGraph.cpp.s
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/IGraph/IGraph.cpp -o CMakeFiles/1.dir/IGraph/IGraph.cpp.s
 
 CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o: CMakeFiles/1.dir/flags.make
 CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o: ../ListGraph/ListGraph.cpp
 CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o: CMakeFiles/1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/m3/1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o -MF CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o.d -o CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o -c /home/aint/park/algs/m3/1/ListGraph/ListGraph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o"
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o -MF CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o.d -o CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o -c /home/aint/park/algs/ListGraph/ListGraph.cpp
 
 CMakeFiles/1.dir/ListGraph/ListGraph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/1.dir/ListGraph/ListGraph.cpp.i"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/m3/1/ListGraph/ListGraph.cpp > CMakeFiles/1.dir/ListGraph/ListGraph.cpp.i
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/ListGraph/ListGraph.cpp > CMakeFiles/1.dir/ListGraph/ListGraph.cpp.i
 
 CMakeFiles/1.dir/ListGraph/ListGraph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/1.dir/ListGraph/ListGraph.cpp.s"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/m3/1/ListGraph/ListGraph.cpp -o CMakeFiles/1.dir/ListGraph/ListGraph.cpp.s
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/ListGraph/ListGraph.cpp -o CMakeFiles/1.dir/ListGraph/ListGraph.cpp.s
 
 CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o: CMakeFiles/1.dir/flags.make
 CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o: ../ArcGraph/ArcGraph.cpp
 CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o: CMakeFiles/1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/m3/1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o -MF CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o.d -o CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o -c /home/aint/park/algs/m3/1/ArcGraph/ArcGraph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o"
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o -MF CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o.d -o CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o -c /home/aint/park/algs/ArcGraph/ArcGraph.cpp
 
 CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.i"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/m3/1/ArcGraph/ArcGraph.cpp > CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.i
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/ArcGraph/ArcGraph.cpp > CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.i
 
 CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.s"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/m3/1/ArcGraph/ArcGraph.cpp -o CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.s
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/ArcGraph/ArcGraph.cpp -o CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.s
 
 CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o: CMakeFiles/1.dir/flags.make
 CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o: ../MatrixGraph/MatrixGraph.cpp
 CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o: CMakeFiles/1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/m3/1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o -MF CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o.d -o CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o -c /home/aint/park/algs/m3/1/MatrixGraph/MatrixGraph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o"
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o -MF CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o.d -o CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o -c /home/aint/park/algs/MatrixGraph/MatrixGraph.cpp
 
 CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.i"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/m3/1/MatrixGraph/MatrixGraph.cpp > CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.i
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/MatrixGraph/MatrixGraph.cpp > CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.i
 
 CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.s"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/m3/1/MatrixGraph/MatrixGraph.cpp -o CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.s
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/MatrixGraph/MatrixGraph.cpp -o CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.s
 
 CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o: CMakeFiles/1.dir/flags.make
 CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o: ../SetGraph/SetGraph.cpp
 CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o: CMakeFiles/1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/m3/1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o -MF CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o.d -o CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o -c /home/aint/park/algs/m3/1/SetGraph/SetGraph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aint/park/algs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o"
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o -MF CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o.d -o CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o -c /home/aint/park/algs/SetGraph/SetGraph.cpp
 
 CMakeFiles/1.dir/SetGraph/SetGraph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/1.dir/SetGraph/SetGraph.cpp.i"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/m3/1/SetGraph/SetGraph.cpp > CMakeFiles/1.dir/SetGraph/SetGraph.cpp.i
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aint/park/algs/SetGraph/SetGraph.cpp > CMakeFiles/1.dir/SetGraph/SetGraph.cpp.i
 
 CMakeFiles/1.dir/SetGraph/SetGraph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/1.dir/SetGraph/SetGraph.cpp.s"
-	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/m3/1/SetGraph/SetGraph.cpp -o CMakeFiles/1.dir/SetGraph/SetGraph.cpp.s
+	/usr/share/clang/scan-build-10/libexec/c++-analyzer $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aint/park/algs/SetGraph/SetGraph.cpp -o CMakeFiles/1.dir/SetGraph/SetGraph.cpp.s
 
 # Object files for target 1
 1_OBJECTS = \
@@ -173,7 +173,7 @@ CMakeFiles/1.dir/SetGraph/SetGraph.cpp.s: cmake_force
 1 : CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o
 1 : CMakeFiles/1.dir/build.make
 1 : CMakeFiles/1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aint/park/algs/m3/1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable 1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aint/park/algs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable 1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -185,6 +185,6 @@ CMakeFiles/1.dir/clean:
 .PHONY : CMakeFiles/1.dir/clean
 
 CMakeFiles/1.dir/depend:
-	cd /home/aint/park/algs/m3/1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aint/park/algs/m3/1 /home/aint/park/algs/m3/1 /home/aint/park/algs/m3/1/build /home/aint/park/algs/m3/1/build /home/aint/park/algs/m3/1/build/CMakeFiles/1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aint/park/algs/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aint/park/algs /home/aint/park/algs /home/aint/park/algs/build /home/aint/park/algs/build /home/aint/park/algs/build/CMakeFiles/1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/1.dir/depend
 

@@ -1,6 +1,6 @@
 CMakeFiles/Tests.dir/IGraph/IGraph.cpp.o: \
- /home/aint/park/algs/m3/1/IGraph/IGraph.cpp /usr/include/stdc-predef.h \
- /home/aint/park/algs/m3/1/IGraph/IGraph.h /usr/include/c++/9/iostream \
+ /home/aint/park/algs/IGraph/IGraph.cpp /usr/include/stdc-predef.h \
+ /home/aint/park/algs/IGraph/IGraph.h /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \

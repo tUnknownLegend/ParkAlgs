@@ -58,8 +58,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/aint/park/algs/m3/1/cmake-build-debug",
-		"source" : "/home/aint/park/algs/m3/1"
+		"build" : "/home/aint/park/algs/cmake-build-debug",
+		"source" : "/home/aint/park/algs"
 	},
 	"version" : 
 	{

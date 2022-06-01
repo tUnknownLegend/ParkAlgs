@@ -1,4 +1,4 @@
-CMakeFiles/1.dir/main.cpp.o: /home/aint/park/algs/m3/1/main.cpp \
+CMakeFiles/1.dir/main.cpp.o: /home/aint/park/algs/main.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -139,16 +139,15 @@ CMakeFiles/1.dir/main.cpp.o: /home/aint/park/algs/m3/1/main.cpp \
  /usr/include/c++/9/bits/stl_uninitialized.h \
  /usr/include/c++/9/bits/stl_vector.h \
  /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /home/aint/park/algs/m3/1/ListGraph/ListGraph.h \
- /usr/include/c++/9/cassert /usr/include/assert.h \
- /usr/include/c++/9/queue /usr/include/c++/9/deque \
+ /home/aint/park/algs/ListGraph/ListGraph.h /usr/include/c++/9/cassert \
+ /usr/include/assert.h /usr/include/c++/9/queue /usr/include/c++/9/deque \
  /usr/include/c++/9/bits/stl_deque.h /usr/include/c++/9/bits/deque.tcc \
  /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_queue.h \
  /usr/include/c++/9/bits/uses_allocator.h \
- /home/aint/park/algs/m3/1/ListGraph/../IGraph/IGraph.h \
- /home/aint/park/algs/m3/1/MatrixGraph/MatrixGraph.h \
- /home/aint/park/algs/m3/1/MatrixGraph/../IGraph/IGraph.h \
- /home/aint/park/algs/m3/1/SetGraph/SetGraph.h \
+ /home/aint/park/algs/ListGraph/../IGraph/IGraph.h \
+ /home/aint/park/algs/MatrixGraph/MatrixGraph.h \
+ /home/aint/park/algs/MatrixGraph/../IGraph/IGraph.h \
+ /home/aint/park/algs/SetGraph/SetGraph.h \
  /usr/include/c++/9/unordered_set /usr/include/c++/9/ext/aligned_buffer.h \
  /usr/include/c++/9/bits/hashtable.h \
  /usr/include/c++/9/bits/hashtable_policy.h /usr/include/c++/9/tuple \
@@ -156,6 +155,6 @@ CMakeFiles/1.dir/main.cpp.o: /home/aint/park/algs/m3/1/main.cpp \
  /usr/include/c++/9/array /usr/include/c++/9/bits/invoke.h \
  /usr/include/c++/9/limits /usr/include/c++/9/bits/unordered_set.h \
  /usr/include/c++/9/bits/erase_if.h \
- /home/aint/park/algs/m3/1/SetGraph/../IGraph/IGraph.h \
- /home/aint/park/algs/m3/1/ArcGraph/ArcGraph.h \
- /home/aint/park/algs/m3/1/ArcGraph/../IGraph/IGraph.h
+ /home/aint/park/algs/SetGraph/../IGraph/IGraph.h \
+ /home/aint/park/algs/ArcGraph/ArcGraph.h \
+ /home/aint/park/algs/ArcGraph/../IGraph/IGraph.h

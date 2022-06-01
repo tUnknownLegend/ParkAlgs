@@ -1,7 +1,7 @@
 CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o: \
- /home/aint/park/algs/m3/1/MatrixGraph/MatrixGraph.cpp \
+ /home/aint/park/algs/MatrixGraph/MatrixGraph.cpp \
  /usr/include/stdc-predef.h \
- /home/aint/park/algs/m3/1/MatrixGraph/MatrixGraph.h \
+ /home/aint/park/algs/MatrixGraph/MatrixGraph.h \
  /usr/include/c++/9/cassert \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -50,7 +50,7 @@ CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o: \
  /usr/include/c++/9/backward/binders.h \
  /usr/include/c++/9/bits/stl_queue.h \
  /usr/include/c++/9/bits/uses_allocator.h \
- /home/aint/park/algs/m3/1/MatrixGraph/../IGraph/IGraph.h \
+ /home/aint/park/algs/MatrixGraph/../IGraph/IGraph.h \
  /usr/include/c++/9/iostream /usr/include/c++/9/ostream \
  /usr/include/c++/9/ios /usr/include/c++/9/iosfwd \
  /usr/include/c++/9/bits/stringfwd.h /usr/include/c++/9/bits/postypes.h \

@@ -1,8 +1,6 @@
 CMakeFiles/Tests.dir/ListGraph/ListGraph.cpp.o: \
- /home/aint/park/algs/m3/1/ListGraph/ListGraph.cpp \
- /usr/include/stdc-predef.h \
- /home/aint/park/algs/m3/1/ListGraph/ListGraph.h \
- /usr/include/c++/9/cassert \
+ /home/aint/park/algs/ListGraph/ListGraph.cpp /usr/include/stdc-predef.h \
+ /home/aint/park/algs/ListGraph/ListGraph.h /usr/include/c++/9/cassert \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -50,7 +48,7 @@ CMakeFiles/Tests.dir/ListGraph/ListGraph.cpp.o: \
  /usr/include/c++/9/backward/binders.h \
  /usr/include/c++/9/bits/stl_queue.h \
  /usr/include/c++/9/bits/uses_allocator.h \
- /home/aint/park/algs/m3/1/ListGraph/../IGraph/IGraph.h \
+ /home/aint/park/algs/ListGraph/../IGraph/IGraph.h \
  /usr/include/c++/9/iostream /usr/include/c++/9/ostream \
  /usr/include/c++/9/ios /usr/include/c++/9/iosfwd \
  /usr/include/c++/9/bits/stringfwd.h /usr/include/c++/9/bits/postypes.h \

@@ -1,7 +1,6 @@
 CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o: \
- /home/aint/park/algs/m3/1/ArcGraph/ArcGraph.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/9/algorithm \
- /usr/include/c++/9/utility \
+ /home/aint/park/algs/ArcGraph/ArcGraph.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/9/algorithm /usr/include/c++/9/utility \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -73,7 +72,7 @@ CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o: \
  /usr/include/c++/9/bits/alloc_traits.h \
  /usr/include/c++/9/bits/memoryfwd.h \
  /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/limits \
- /home/aint/park/algs/m3/1/ArcGraph/ArcGraph.h /usr/include/c++/9/cassert \
+ /home/aint/park/algs/ArcGraph/ArcGraph.h /usr/include/c++/9/cassert \
  /usr/include/assert.h /usr/include/c++/9/queue /usr/include/c++/9/deque \
  /usr/include/c++/9/bits/allocator.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h \
@@ -89,7 +88,7 @@ CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o: \
  /usr/include/c++/9/backward/binders.h \
  /usr/include/c++/9/bits/stl_queue.h \
  /usr/include/c++/9/bits/uses_allocator.h \
- /home/aint/park/algs/m3/1/ArcGraph/../IGraph/IGraph.h \
+ /home/aint/park/algs/ArcGraph/../IGraph/IGraph.h \
  /usr/include/c++/9/iostream /usr/include/c++/9/ostream \
  /usr/include/c++/9/ios /usr/include/c++/9/iosfwd \
  /usr/include/c++/9/bits/stringfwd.h /usr/include/c++/9/bits/postypes.h \

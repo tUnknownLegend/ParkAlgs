@@ -1,4 +1,4 @@
-CMakeFiles/Tests.dir/tests.cpp.o: /home/aint/park/algs/m3/1/tests.cpp \
+CMakeFiles/Tests.dir/tests.cpp.o: /home/aint/park/algs/tests.cpp \
  /usr/include/stdc-predef.h /usr/local/include/gtest/gtest.h \
  /usr/include/c++/9/cstddef \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
@@ -241,17 +241,17 @@ CMakeFiles/Tests.dir/tests.cpp.o: /home/aint/park/algs/m3/1/tests.cpp \
  /usr/local/include/gtest/gtest-typed-test.h \
  /usr/local/include/gtest/gtest_pred_impl.h \
  /usr/local/include/gtest/gtest_prod.h \
- /home/aint/park/algs/m3/1/ListGraph/ListGraph.h /usr/include/c++/9/queue \
+ /home/aint/park/algs/ListGraph/ListGraph.h /usr/include/c++/9/queue \
  /usr/include/c++/9/deque /usr/include/c++/9/bits/stl_deque.h \
  /usr/include/c++/9/bits/deque.tcc /usr/include/c++/9/bits/stl_heap.h \
  /usr/include/c++/9/bits/stl_queue.h \
- /home/aint/park/algs/m3/1/ListGraph/../IGraph/IGraph.h \
- /home/aint/park/algs/m3/1/MatrixGraph/MatrixGraph.h \
- /home/aint/park/algs/m3/1/MatrixGraph/../IGraph/IGraph.h \
- /home/aint/park/algs/m3/1/SetGraph/SetGraph.h \
+ /home/aint/park/algs/ListGraph/../IGraph/IGraph.h \
+ /home/aint/park/algs/MatrixGraph/MatrixGraph.h \
+ /home/aint/park/algs/MatrixGraph/../IGraph/IGraph.h \
+ /home/aint/park/algs/SetGraph/SetGraph.h \
  /usr/include/c++/9/unordered_set /usr/include/c++/9/bits/hashtable.h \
  /usr/include/c++/9/bits/hashtable_policy.h \
  /usr/include/c++/9/bits/unordered_set.h \
- /home/aint/park/algs/m3/1/SetGraph/../IGraph/IGraph.h \
- /home/aint/park/algs/m3/1/ArcGraph/ArcGraph.h \
- /home/aint/park/algs/m3/1/ArcGraph/../IGraph/IGraph.h
+ /home/aint/park/algs/SetGraph/../IGraph/IGraph.h \
+ /home/aint/park/algs/ArcGraph/ArcGraph.h \
+ /home/aint/park/algs/ArcGraph/../IGraph/IGraph.h
