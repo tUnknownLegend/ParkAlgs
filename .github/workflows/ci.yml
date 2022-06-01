@@ -32,7 +32,7 @@ jobs:
         run: mkdir build && bash ./st.bash  
 
       - name: gen coverage
-        run: sudo apt-get install lcov && cd /build && lcov -t "Tests" -o coverage.info -c -d ./ 
+        run: sudo apt-get install lcov && cd ./build && lcov -t "Tests" -o coverage.info -c -d ./ 
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
