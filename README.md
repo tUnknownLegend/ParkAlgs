@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/tUnknownLegend/ParkAlgs/badge.svg?branch=3.1)](https://coveralls.io/github/tUnknownLegend/ParkAlgs?branch=3.1) *покрытие отображется некорректно*
+*покрытие отображется некорректно* [![Coverage Status](https://coveralls.io/repos/github/tUnknownLegend/ParkAlgs/badge.svg?branch=3.1)](https://coveralls.io/github/tUnknownLegend/ParkAlgs?branch=3.1) 
 
 # Задача 1. «Представление графа».(5 баллов)
 Дан базовый интерфейс для представления ориентированного графа:
