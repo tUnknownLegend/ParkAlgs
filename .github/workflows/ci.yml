@@ -29,7 +29,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y valgrind 
 
       - name: Scan-build + Run + Valgrind
-        run: cd ./qt/lib && mkdir build && bash ./st.bash  
+        run: mkdir build && bash ./st.bash  
 
       - name: gen coverage
         run: sudo apt-get install lcov && cd /build && lcov -t "Tests" -o coverage.info -c -d ./ 

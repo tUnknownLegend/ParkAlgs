@@ -1,4 +1,0 @@
-/home/aint/park/algs/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/aint/park/algs/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/aint/park/algs/cmake-build-debug/CMakeFiles/Tests.dir
-/home/aint/park/algs/cmake-build-debug/CMakeFiles/1.dir

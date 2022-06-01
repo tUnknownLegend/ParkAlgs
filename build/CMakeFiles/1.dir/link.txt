@@ -1,1 +1,0 @@
-/usr/share/clang/scan-build-10/libexec/c++-analyzer -fprofile-arcs -ftest-coverage -O0  -coverage -lgcov CMakeFiles/1.dir/main.cpp.o CMakeFiles/1.dir/IGraph/IGraph.cpp.o CMakeFiles/1.dir/ListGraph/ListGraph.cpp.o CMakeFiles/1.dir/ArcGraph/ArcGraph.cpp.o CMakeFiles/1.dir/MatrixGraph/MatrixGraph.cpp.o CMakeFiles/1.dir/SetGraph/SetGraph.cpp.o -o 1 
