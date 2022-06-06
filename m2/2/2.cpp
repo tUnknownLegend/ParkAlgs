@@ -1,7 +1,22 @@
+/*
+ * Задача 2. Порядок обхода *
+Дано число N < 106 и последовательность целых чисел из [-231..231] длиной N.
+Требуется построить бинарное дерево, заданное наивным порядком вставки.
+Т.е., при добавлении очередного числа K в дерево с корнем root, если root→Key ≤ K,
+то узел K добавляется в правое поддерево root; иначе в левое поддерево root.
+
+ * Требования: Рекурсия запрещена. Решение должно поддерживать передачу функции сравнения снаружи.
+
+ * 2_1. Выведите элементы в порядке in-order (слева направо).
+ */
+
+// best time complexity - o(log(n))
+// worst time complexity - o(n)
+// space complexity 0 o(n)
+
 #include <iostream>
 #include <queue>
-#include <vector>
-#include <cassert>
+#include <deque>
 
 template<class T, class Compare>
 class BinaryTree {
@@ -107,69 +122,40 @@ void BinaryTree<T, Compare>::traverse(Node *node, void (*visit)(const T &key)) {
         return;
     }
 
-    std::vector<Node *> nodeVec;
+    std::deque<Node *> nodeVec;
     nodeVec.push_back(node);
-    node = node->Left;
 
     while (!nodeVec.empty()) {
         while (node->Left != nullptr) {
-            nodeVec.push_back(node);
             node = node->Left;
+            nodeVec.push_back(node);
         }
 
-        visit(node->Key);
-        //visit(nodeVec.back()->Key);
-
-        while (nodeVec.back()->Right == nullptr && !nodeVec.empty()) {
+        while (!nodeVec.empty() && nodeVec.back()->Right == nullptr) {
             visit(nodeVec.back()->Key);
             nodeVec.pop_back();
         }
 
-        if (nodeVec.back()->Right != nullptr) {
+        if (!nodeVec.empty()) {
+            node = nodeVec.back();
             visit(nodeVec.back()->Key);
-            node = nodeVec.back()->Right;
             nodeVec.pop_back();
+        }
+
+        if (node->Right != nullptr) {
+            node = node->Right;
 
             while (node->Left == nullptr && node->Right != nullptr) {
                 visit(node->Key);
                 node = node->Right;
             }
 
-            if (node->Left != nullptr) {
+            if (node->Left != nullptr)
                 nodeVec.push_back(node);
-                node = node->Left;
-            } else
+            else
                 visit(node->Key);
         }
     }
-
-    /*
-    std::queue<Node *> nodeList;
-    nodeList.push(node);
-    std::queue<Node *> subNodeList;
-
-    while (node->Left != nullptr)
-
-    while (nodeList.front()->Right != nullptr && nodeList.front()->Left != nullptr) {
-        node = nodeList.front();
-        //nodeList.pop();
-
-        if (node->Right != nullptr)
-            nodeList.push(node->Right);
-
-        if (node->Left != nullptr)
-            nodeList.push(node->Left);
-
-    }
-    */
-    /*
-    if (node == nullptr) {
-        return;
-    }
-    traverse(node->Left, visit);
-    visit(node->Key);
-    traverse(node->Right, visit);
-     */
 }
 
 struct IntCmp {

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/working.dir/w.cpp.o -o working 

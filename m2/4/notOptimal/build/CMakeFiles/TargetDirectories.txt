@@ -1,0 +1,3 @@
+/home/aint/park/algs/m2/NEW4/working/build/CMakeFiles/working.dir
+/home/aint/park/algs/m2/NEW4/working/build/CMakeFiles/edit_cache.dir
+/home/aint/park/algs/m2/NEW4/working/build/CMakeFiles/rebuild_cache.dir
